@@ -1,5 +1,5 @@
 def say (msg)
-	puts "=> #{msg}" 
+  puts "=> #{msg}" 
 end
  
 say "Welcome to the calculator. To begin, please follow these basic instructions."
@@ -15,17 +15,17 @@ say "What would you like to do with these numbers? 1) add 2) subtract 3) multipl
 operator = gets.chomp
 
 if operator == '1' 
-	result = num1.to_i + num2.to_i
-	operator = 'plus'
+  result = num1.to_i + num2.to_i
+  operator = 'plus'
 elsif operator == '2'
-	result = num1.to_i - num2.to_i
-	operator = 'minus'
+  result = num1.to_i - num2.to_i
+  operator = 'minus'
 elsif operator == '3'
-	result = num1.to_i * num2.to_i
-	operator = 'times'
+  result = num1.to_i * num2.to_i
+  operator = 'times'
 elsif operator == '4'
-	result = num1.to_f / num2.to_f 
-	operator = 'divided by'
+  result = num1.to_f / num2.to_f 
+  operator = 'divided by'
 
 end
 
