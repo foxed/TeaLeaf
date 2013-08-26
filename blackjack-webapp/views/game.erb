@@ -1,0 +1,44 @@
+
+<h2>BLACKJACK</h2>
+
+Welcome, <%= session[:player_name]%>.
+
+<div class="well">
+  <h4><%= session[:player_name]%>'s cards:</h4>
+  
+  <% session[:player_cards].each do |card| %>
+    <%= card_image(card) %> 
+  <% end %>
+
+</div>
+
+<br/>
+<div class='well'>
+  <h4>Dealer's cards:</h4>
+  
+  <% session[:dealer_cards].each do |card| %>
+    <%= card_image(card) %>
+  <% end %>
+ 
+  <% @show_dealer_hit %>
+  <p>
+
+  <form action='/game/dealer/hit' method='post'>
+  	<input type='submit' class='btn btn-primary' value='Click to see dealer card &rarr;'>
+  </form>
+ </p>
+ 
+</div>
+
+Your cards add up to <%= calculate_total(session[:player_cards])%>.
+What would you like to do, <%= session[:player_name]%>?
+
+<% if @show_hit_or_stay %>
+	<form id="hit_form" action="/game/player/hit" method='post'> 
+		<input type="submit" class="btn btn-success" value="Hit" /> 
+	</form> 
+
+	<form id="stay_form" action ="/game/player/stay" method='post'>
+    	<input type="submit" class="btn btn-warning" value="Stay" />
+  	</form>
+<% end %>
