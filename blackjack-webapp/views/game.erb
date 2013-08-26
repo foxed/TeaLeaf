@@ -20,20 +20,21 @@ Welcome, <%= session[:player_name]%>.
     <%= card_image(card) %>
   <% end %>
  
-  <% @show_dealer_hit %>
+ <% if @show_dealer_hit %>
   <p>
-
-  <form action='/game/dealer/hit' method='post'>
-  	<input type='submit' class='btn btn-primary' value='Click to see dealer card &rarr;'>
-  </form>
- </p>
- 
+    <h5>Dealer has <%= calculate_total(session[:dealer_cards]) %>
+    <form action='/game/dealer/hit' method='post'>
+    <input type='submit' class='btn btn-primary' value='Click to see dealer card &rarr;'>
+    </form>
+<% end %>
 </div>
-
-Your cards add up to <%= calculate_total(session[:player_cards])%>.
-What would you like to do, <%= session[:player_name]%>?
-
+<p>
+<h5>Your cards add up to <%= calculate_total(session[:player_cards])%>.</h5>
+<p>
 <% if @show_hit_or_stay %>
+ 
+ <h5>What would you like to do, <%= session[:player_name]%>?</h5>
+<p>
 	<form id="hit_form" action="/game/player/hit" method='post'> 
 		<input type="submit" class="btn btn-success" value="Hit" /> 
 	</form> 
